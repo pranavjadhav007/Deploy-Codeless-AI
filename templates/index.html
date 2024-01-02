@@ -1,0 +1,99 @@
+ {% extends "base.html" %} {% block content %}
+
+
+<div class="top">
+    <h1 class="headiname">Codeless AI</h1>
+    <p><b><i>No need to write code when code can write for you.</i></b></p>
+</div>
+
+<div class="how_to_use container">
+<p class="d-inline-flex gap-1">
+    <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      How to use
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body useto">
+      <ol>
+        <li>Pre Process the dataset by removing nan, dispersed values etc.</li>
+        <li>Upload the pre processed dataset below.</li>
+        <li>Build as many hidden layers as required by selecting desired options from drop down.</li>
+        <li>Compile and Fit the model by selecting its parameter from drop down.</li>
+        <li>The model is dump and exported to results location. Now can use it directly.</li>
+      </ol>
+        
+    </div>
+</div>
+</div>
+
+<div class=" container modeldiv">
+    <h6>*dataset should be preprocessed. This model will considier each and every parameter and attribute.</h6>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+
+        <div class="thirddiv container">
+            <div class="thirddivin">
+                <b><h1>Dataset File Upload</h1> </b><br>
+                <br>
+                <label for="imageUpload1" class="upload-label">Select Image</label>
+                <input type="file" name="file" id="imageUpload1" accept=".csv, .xlsx">
+                <div class="image-section" style="display:none;">
+                    <div class="img-preview container imgprv">
+                        <div id="imagePreview1"><i>Dataset Upload Successfully</i></div>
+                    </div>
+                    <h6>*now build the model by selecting options from drop-down and click on Process Me. </h6>
+
+                </div>
+
+            </div>
+        </div>
+
+        <h1> <b>Build Layers of Model</b></h1>
+        <div class="container" id="c1">
+            <button type="button" class="btn btn-primary btn-lg " onclick="addInputsAndDropdowns()">Add Input Fields and Dropdowns</button> <br><br>
+
+        </div>
+        <h1><b>Compile Model</b></h1>
+        <div class="container" id="c2">
+            <button type="button" class="btn btn-primary btn-lg " onclick="addCompileComand()">Compile Model</button> <br><br>
+
+        </div>
+        <h1><b>Fit Model</b></h1>
+        <div class="container" id="c3">
+            <button type="button" class="btn btn-primary btn-lg " onclick="addFitComand()">Fit Model</button> <br><br>
+        </div>
+        <br>
+
+    </form>
+    <div>
+        <button type="button" class="btn btn-outline-primary bm" id="btn-predict" style="display: none;">Process Me</button>
+    </div>
+    <div class="loader" style="display:none;">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</div>
+<br><br>
+
+<h3 id="result">
+    <span class="res_head">Results:</span> <br> <br>
+    <p>Below is the link of the resultant model. It's ready to use now.</p>
+    <div id="result-text" class="fin_res"></div>
+    <br> <br>
+</h3>
+
+
+
+<br><br>
+
+
+<div class="made">
+    <img src="static/logoico.png" alt=""> <br>
+    <h1><b>Providing AI Services Free</b></h1>
+
+</div>
+
+
+<br><br><br> {% endblock %}
